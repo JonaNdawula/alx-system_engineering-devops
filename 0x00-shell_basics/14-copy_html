@@ -1,2 +1,2 @@
 #!/bin/bash
-cp .html ./ ../\n
+cp file_0.html ./ ../\n
