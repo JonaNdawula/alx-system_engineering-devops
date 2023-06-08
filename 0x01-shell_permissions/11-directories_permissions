@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir -n777 ./\n
+mkdir -m 777 ./
