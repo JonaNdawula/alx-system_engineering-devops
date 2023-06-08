@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 111 ./home\n
+chmod 111 ./hello\n
