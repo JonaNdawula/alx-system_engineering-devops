@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir -m755 ./
+mkdir -m 755 ./
