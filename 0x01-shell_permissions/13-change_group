@@ -1,2 +1,2 @@
 #!/bin/bash
- chgrp --reference=school ./hello
+ chgrp --reference=./home school
