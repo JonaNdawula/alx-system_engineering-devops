@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# A Bash script that displays numbers from 1 to 20 
+
+iter="1"
+while [ $iter -le 20 ]
+do
+case $iter in
+ 4)  echo $iter
+     echo "bad luck from China"
+     ;;   
+ 9)  echo $iter
+     echo "bad luck from Japan"
+     ;;
+ 17) echo $iter
+     echo "bad luck from Italy"
+     ;; 
+     *)
+	echo $iter
+esac
+iter=$((iter + 1))
+done
