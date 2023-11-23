@@ -1,8 +1,9 @@
-			0x04. Loops, conditions and parsing
+
+                       0x04. Loops, conditions and parsing
 
 0. Create a SSH RSA key pair
 
-1. A Bash script that displays Best School 10 times using using the while loop. 
+1. A Bash script that displays Best School 10 times using using the while loop.
 
 2. A Bash script that displays Best School 10 times using the for loop.
 
@@ -30,8 +31,9 @@ display minutes from 1 to 59
 8. A ash script that displays:
 
 The content of the current directory
+
 In a list format
-Where only the part of the name after the first dash is displayed 
+Where only the part of the name after the first dash is displayed
 
 9. A Bash script that gives you information about the school file.
 
