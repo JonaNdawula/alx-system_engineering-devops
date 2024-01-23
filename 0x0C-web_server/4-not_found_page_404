@@ -23,6 +23,6 @@ sudo sed -i '24i	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlw
 echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
 sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
 
-sudo service ngnix restart
+sudo service nginx restart
 
 echo -e "\nDone.n"
