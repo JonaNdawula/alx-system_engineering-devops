@@ -1,4 +1,4 @@
-#!usr/bin//env bash
+#!usr/bin/env bash
 #instals Nginx at listening port 80
 
 echo -e "update and install Nginx.\n"
