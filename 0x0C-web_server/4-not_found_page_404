@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #instals Nginx at listening port 80
 
-echo -e "update and install Nginx.\n"
+echo -e "updating and installing Nginx.\n"
 sudo apt-get update -y -qq && \
          sudo apt-get install nginx -y
 
-echo -e "\nsetting up minor stuff.\n"
+echo -e "\nsetting up some minor stuff.\n"
 
 sudo service nginx start
 
@@ -25,4 +25,4 @@ sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/de
 
 sudo service nginx restart
 
-echo -e "\nDone.\n"
+echo -e "\nCompleted.\n"
