@@ -2,11 +2,9 @@
 #script that doubles number of web servers
 
 apt-get -y update ; 
-
 apt-get -y install nginx
 
 str="http {\n\tadd_header X-Served-By \"$hostname\";"
-
 sudo sed -i "s/http {/$str/" /etc/nginx/nginx.conf
 
 sudo service nginx restart
