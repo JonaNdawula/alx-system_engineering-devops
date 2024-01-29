@@ -11,7 +11,6 @@ INIT_FILE= '/etc/default/haproxy'
 CONFIG_FILE='/etc/haproxy/haproxy.cfg'
 HAPROXY_LB_CONFIG=\
 "
-
 backend $DOM_NAME-backend
 	balance roundrobin
     server 422435-web-01 100.25.4.139:80 check
@@ -47,7 +46,7 @@ else
 	x=$((x - 1))
 	y=$((y + 1))
 
-	sed -i "$x$y"d "$CONFIG_FILE"
+	sed -i "$x,$y"d "$CONFIG_FILE"
 	echo -en "$HAPROXY_LB_CONFIG" >> $CONFIG_FILE
 fi
 
