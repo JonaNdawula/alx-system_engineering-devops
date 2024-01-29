@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #script that doubles number of web servers
 
-hm = $(hostname)
+hm=$(hostname)
 str="server {\n\tadd_header X-Served-By $hm;"
 str2="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 
