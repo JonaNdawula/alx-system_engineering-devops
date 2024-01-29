@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+#Install and configure HAproxy on your lb-01 server.
+
+apt-get update
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.4
+apt-get -y install haproxy
+
+DOM_NAME='jonandawula.tech'
+INIT_FILE= '/etc/default/haproxy'
+CONFIG_FILE='/etc/haproxy/haproxy.cfg'
+HAPROXY_LB_CONFIG=\
+"
+
+backend $DOM_NAME-backend
+	balance roundrobin
+    server 422435-web-01 100.25.4.139:80 check
+    server 422435-web-02 54.90.24.175:80 check
+
+frontend $DOM_NAME-frontend
+	 bind *:80
+	 mode http
+
+	 default_backend $DOM_NAME-backend
+
+"
+
+[ -f "$INIT_FILE" ] || touch "$INIT_FILE"
+[ -f "$CONFIG_FILE" ] || touch "$CONFIG_FILE"
+
+CONFIG_WD =$(grep -Eco "$DOM_NAME-backend" < $CONFIG_FILE)
+
+if [ "$(grep -Eco '^ENABLED=[01]$' < $INIT_FILE)" -gt 0]; then
+	sed -i 's/^ENABLED=0$/ENABLED=1/' "$INIT_FILE"
+else
+	echo 'ENABLED=1' >> $INIT_FILE
+fi
+
+if [ "$CONFIG_WD" -eq 0 ]; then
+	echo -e "$HAPROXY_LB_CONFIG" >> $CONFIG_FILE
+else
+	start_token="#--$DOMAIN_NAME-params-begin--"
+	end_token="#--$DOMAIN_NAME-params-end--"
+	x=$(grep -onE "$start_token" < "$CONFIG_FILE" | cut -d : -f1)
+	y=$(grep -onE "$end_token" < "$CONFIG_FILE" | cut -d : -f1)
+
+	x=$((x - 1))
+	y=$((y + 1))
+
+	sed -i "$x$y"d "$CONFIG_FILE"
+	echo -en "$HAPROXY_LB_CONFIG" >> $CONFIG_FILE
+fi
+
+if [ "$(pgrep -c haproxy)" -le 0 ]; then
+	service haproxy start
+else
+	service haproxy restart
+fi
