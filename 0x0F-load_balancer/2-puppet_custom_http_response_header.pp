@@ -14,3 +14,8 @@ exec { 'update':
 -> exec { 'run'
   command  => '/usr/sbin/service nginx restart'
 }
+-> service { 'nginx':
+  ensure  => 'running',
+  enable  => true,
+  require => Package['nginx']
+}
