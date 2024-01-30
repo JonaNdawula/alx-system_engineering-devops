@@ -5,7 +5,8 @@ exec { 'update':
   provider => 'shell'
 }
 -> package { 'nginx':
-  ensure => 'installed'
+     ensure   => installed,
+     provider => 'apt'
 }
 -> file_line { 'header_served_by':
   path  => '/etc/nginx/sites-available/default',
