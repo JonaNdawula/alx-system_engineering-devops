@@ -1,6 +1,8 @@
 # script to install and configure nginx
 exec { 'update':
-  command => '/usr/bin/apt-get update',
+  command  => 'apt-get update',
+  user     => 'root',
+  provider => 'shell'
 }
 -> package { 'nginx':
   ensure => 'installed'
