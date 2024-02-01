@@ -11,8 +11,8 @@ if [[ $# == 1 ]]; then
     for indx in "${otherdomains[@]}"; do
 	join="$indx.$1"
 	display_dns_info $indx $join
-        done
+    done
 else
-   join="$2.$1"
-   display_dns_info $2 $join
+    join="$2.$1"
+    display_dns_info $2 $join
 fi
