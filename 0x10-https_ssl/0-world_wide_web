@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#A script that display information for subdomains
+
+display_dns_info() {
+    ANS=$(dig $2 | grep -A1 'ANSWER SECTION:' | awk 'NR==2 {print $0}')
+    echo "The subdomain $1 is a $(echo $ANS | awk '{print $4}') record and points to $(echo $ANS | awk '{print $5}')"
+}
+
+if [[ $# == 1 ]]; then  
+    otherdomains=('www' 'lb-01' 'web-01' 'web-02')
+    for indx in "${otherdomains[@]}"; do
+	join="$indx.$1"
+	display_dns_info $indx $join
+        done
+else
+   join="$2.$1"
+   display_dns_info $2 $join
+fi
