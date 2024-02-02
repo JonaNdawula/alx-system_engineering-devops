@@ -32,20 +32,3 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
-frontend jonandawula-frontend
-        bind *:80
-	mode http
-	http-request redirect scheme https code 301 unless { ssl_fr}
-	http-request set-header X_Forwarded-Proto http
-	default_backend jonandawula-backend
-
-frontend jonandawula-frontend-https
- 	bind *:443 ssl crt /etc/haproxy/certs/jonandawula.tech.pem
-	http-request set-header X-Forwarded-Proto https
-	default_backend jonandawula-backend
-
-backend jonandawula-backend
-	balance roundrobin
-	server 422435-web-01 100.25.4.139 check
-	server 422435-web-02 54.90.24.175 check
