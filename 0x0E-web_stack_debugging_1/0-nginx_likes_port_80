@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env  bash
 #Restores default server
 
 sudo ln -sf  /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
