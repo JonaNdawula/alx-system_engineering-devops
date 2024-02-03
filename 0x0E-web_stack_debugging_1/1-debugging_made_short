@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# less time script
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
