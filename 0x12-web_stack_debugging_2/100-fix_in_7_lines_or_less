@@ -2,6 +2,6 @@
 # fix
 chmod 644 /etc/nginx/nginx.conf
 sed -Ei 's/3?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
-sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etcnginx/sites-enabled/default
+sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 pkill apache2
 su nginx -s /bin/bash -c 'service nginx restart' 
