@@ -22,4 +22,4 @@ if __name__ == '__main__':
             task_done = tsk.get('completed')
             task_name = tsk.get('title')
             csvfile.write('"{}","{}","{}","{}"\n'.format(
-                undividual, user_name, task_done, task_name))
+                individual, user_name, task_done, task_name))
