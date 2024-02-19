@@ -3,8 +3,9 @@
 A python script to
 Export to csv
 """
-import json
+
 import csv
+import json
 import requests
 import sys
 
