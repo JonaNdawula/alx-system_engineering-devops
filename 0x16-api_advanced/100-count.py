@@ -5,7 +5,6 @@
 import requests
 
 
-
 def count_words(subreddit, word_list, after='', wd_dict=None):
     """  Recursive function that queries the
     Reddit API, parses the title of all hot articles,
@@ -15,7 +14,7 @@ def count_words(subreddit, word_list, after='', wd_dict=None):
     """
 
     if wd_dict is None:
-        wd_dict =   {wd.lower(): 0 for wd in word_list}
+        wd_dict = {wd.lower(): 0 for wd in word_list}
 
     if after is None:
         wddict = sorted(wd_dict.items(), key=lambda i: (-i[1]. i[0]))
@@ -47,4 +46,3 @@ def count_words(subreddit, word_list, after='', wd_dict=None):
         return None
 
     count_words(subreddit, word_list, aft, wd_dict)
-
