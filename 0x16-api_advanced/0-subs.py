@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """function that queries the Reddit API and returns the
 number of subscribers (not active users, total subscribers)
+if subreddit is invalid return 0
 """
 
 import requests
@@ -17,3 +18,7 @@ def number_of_subscribers(subreddit):
         return subscribers
     else:
         return 0
+
+
+if __name__ == "__main__":
+    numbert_of_subscribers(argv[1])
