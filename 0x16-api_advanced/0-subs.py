@@ -5,7 +5,7 @@ if subreddit is invalid return 0
 """
 
 import requests
-
+from sys import argv
 
 def number_of_subscribers(subreddit):
     """Will Returns total Number of subscribers on Reddit subreddit"""
@@ -21,4 +21,4 @@ def number_of_subscribers(subreddit):
 
 
 if __name__ == "__main__":
-    numbert_of_subscribers(argv[1])
+    number_of_subcribers(argv[1])
