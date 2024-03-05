@@ -8,6 +8,7 @@ articles for a subreddit
 
 import requests
 
+
 def recurse(subreddit, hot_list=[], count=0, after=None):
     """ Will return a list containing the titles"""
 
@@ -19,7 +20,6 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
     if response.status_code >= 400:
         return None
 
-
     hotlist = hot_list + [child.get("data").get("title")
                           for child in response.json()
                           .get("data")
@@ -29,4 +29,4 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
         return hotlist
 
     return recurse(subreddit, hotlist, pg_info.get("data").get("count"),
-                    pg_info.get("data").get("after"))
+                   pg_info.get("data").get("after"))
