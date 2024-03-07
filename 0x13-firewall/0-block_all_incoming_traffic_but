@@ -23,4 +23,4 @@ sudo ufw allow 443
 sudo ufw enable
 
 
-cho -e "Process Completed.\n"
+echo -e "Process Completed.\n"
