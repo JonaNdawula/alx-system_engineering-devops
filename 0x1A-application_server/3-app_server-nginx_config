@@ -20,8 +20,8 @@ server {
                proxy_redirect off;
        }
 
-       location /airbnb-dynamic/number_odd_or_even/(.*)/$1 {
-	       proxy_pass http://localhost:5001/number_odd_or_even/$1;
+       location /airbnb-dynamic/number_odd_or_even/ {
+	       proxy_pass http://localhost:5001/number_odd_or_even/;
 	       proxy_redirect off;
        }
 
