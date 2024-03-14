@@ -23,6 +23,7 @@ server {
        location /airbnb-dynamic/number_odd_or_even/ {
 	       proxy_pass http://localhost:5001/number_odd_or_even/;
 	       proxy_redirect off;
+	       proxy_set_header Content-Type text/html;
        }
 
        location /redirect_me {return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}
